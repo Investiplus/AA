@@ -4,95 +4,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Investiplus Dashboard</title>
+  <title>Dashboard Investiplus</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f3f3f3;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
     }
     .sidebar {
-      background-color: #111;
-      color: #fff;
-      width: 220px;
+      width: 240px;
+      background-color: #1a1a1a;
+      height: 100vh;
       position: fixed;
-      top: 0;
-      left: 0;
-      bottom: 0;
       padding: 20px 0;
+      color: #fff;
     }
     .sidebar img {
+      max-width: 140px;
       display: block;
-      margin: 0 auto 20px auto;
-      max-width: 150px;
+      margin: 0 auto 20px;
     }
     .sidebar nav a {
       display: block;
-      color: #fff;
       padding: 12px 20px;
+      color: #fff;
       text-decoration: none;
     }
     .sidebar nav a:hover {
-      background-color: #ffa500;
-      color: #000;
+      background-color: #333;
     }
     .main {
       margin-left: 240px;
-      padding: 20px;
+      padding: 40px;
+    }
+    .welcome {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
     .card {
-      background-color: #fff;
+      background-color: white;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      margin-bottom: 20px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+      flex: 1 1 220px;
+      min-width: 220px;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card i {
+      font-size: 26px;
+      margin-bottom: 10px;
+      color: orange;
     }
     .card h3 {
-      margin: 0 0 10px;
-      color: #333;
+      margin: 0;
+      font-size: 16px;
+      color: #555;
     }
-    .highlight {
-      font-size: 24px;
+    .card p {
+      font-size: 22px;
       font-weight: bold;
-      color: #ffa500;
+      color: #222;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
+    .chart-container {
+      margin-top: 40px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    }
+    canvas {
+      max-width: 100%;
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <img src="investiplus_logo_white_bg.png" alt="Investiplus Logo">
+  <aside class="sidebar">
+    <img src="investiplus_logo_white_bg.png" alt="Logo Investiplus">
     <nav>
-      <a href="#"><i class="fa-solid fa-gauge"></i> Cruscotto</a>
-      <a href="#"><i class="fa-solid fa-network-wired"></i> Reti</a>
-      <a href="#"><i class="fa-solid fa-user-plus"></i> Registrati</a>
-      <a href="#"><i class="fa-solid fa-wallet"></i> Portafoglio</a>
-      <a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Prelievo</a>
-      <a href="#"><i class="fa-solid fa-cart-shopping"></i> Acquisti</a>
-      <a href="#"><i class="fa-solid fa-tools"></i> Strumenti</a>
+      <a href="#"><i class="fas fa-home"></i> Cruscotto</a>
+      <a href="#"><i class="fas fa-sitemap"></i> Reti</a>
+      <a href="#"><i class="fas fa-user-plus"></i> Registrati</a>
+      <a href="#"><i class="fas fa-wallet"></i> Portafoglio</a>
+      <a href="#"><i class="fas fa-money-bill-wave"></i> Prelievo</a>
+      <a href="#"><i class="fas fa-shopping-cart"></i> Acquisti</a>
+      <a href="#"><i class="fas fa-cogs"></i> Strumenti</a>
     </nav>
-  </div>
-  <div class="main">
-    <h1>Benvenuto agente</h1>
-    <div class="grid">
-      <div class="card"><h3>Commissioni</h3><div class="highlight">€ 9,69</div></div>
-      <div class="card"><h3>Totale Crediti</h3><div class="highlight">€ 9,69</div></div>
-      <div class="card"><h3>Totale Debiti</h3><div class="highlight">€ 0</div></div>
-      <div class="card"><h3>Attuale Classifica</h3><div class="highlight">Silver</div></div>
+  </aside>
+  <main class="main">
+    <div class="welcome">Benvenuto Agente</div>
+    <div class="cards">
+      <div class="card"><i class="fas fa-users"></i><h3>Utenti Totali</h3><p>102</p></div>
+      <div class="card"><i class="fas fa-wallet"></i><h3>Saldo Wallet</h3><p>&euro; 126,00</p></div>
+      <div class="card"><i class="fas fa-user-friends"></i><h3>Referral Attivi</h3><p>28</p></div>
+      <div class="card"><i class="fas fa-box"></i><h3>Prodotti & Ordini</h3><p>46</p></div>
     </div>
-    <div class="card">
-      <h3>Dati Sponsor</h3>
-      <p><strong>Member1 Test</strong><br>ID: INF00123<br>PV personale: 100<br>PV gruppo: 100<br>Sponsor: MOH2M3LMD</p>
+    <div class="chart-container">
+      <h3>Andamento Commissioni</h3>
+      <canvas id="commissionChart"></canvas>
     </div>
-    <div class="card">
-      <h3>Panoramica dei Pagamenti</h3>
-      <p>Pagato: € 0</p>
-    </div>
-  </div>
+  </main>
+  <script>
+    const ctx = document.getElementById('commissionChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Gen', 'Feb', 'Mar', 'Apr', 'Mag', 'Giu'],
+        datasets: [{
+          label: 'Commissioni €',
+          data: [90, 120, 150, 100, 170, 200],
+          borderColor: 'orange',
+          fill: false,
+          tension: 0.3
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
 </body>
 </html>
