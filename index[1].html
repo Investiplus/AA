@@ -2,238 +2,97 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard Investigest Completa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investiplus Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --primary: #f97316;
-      --secondary: #2974FF;
-      --green: #0D9B4D;
-      --background: #f3f3f3;
-      --white: #fff;
-      --text: #121212;
-      --muted: #666667;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Quicksand', sans-serif;
-      display: flex;
-      background-color: var(--background);
-      color: var(--text);
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f3f3;
     }
-
     .sidebar {
+      background-color: #111;
+      color: #fff;
       width: 220px;
-      background-color: var(--text);
-      padding: 30px 20px;
-      color: var(--white);
-      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      padding: 20px 0;
     }
-
-    .sidebar h2 {
-      color: var(--primary);
-      margin-bottom: 20px;
-    }
-
-    .sidebar a {
+    .sidebar img {
       display: block;
-      color: var(--white);
+      margin: 0 auto 20px auto;
+      max-width: 150px;
+    }
+    .sidebar nav a {
+      display: block;
+      color: #fff;
+      padding: 12px 20px;
       text-decoration: none;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 8px;
-      transition: background 0.3s;
     }
-
-    .sidebar a:hover {
-      background-color: var(--primary);
+    .sidebar nav a:hover {
+      background-color: #ffa500;
+      color: #000;
     }
-
-    .mainlayout {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-      padding: 30px;
-      gap: 30px;
-    }
-
-    .center_content_section {
-      flex: 3;
-    }
-
-    .right_content_section {
-      flex: 1.2;
-    }
-
-    .card, .panel {
-      background-color: var(--white);
+    .main {
+      margin-left: 240px;
       padding: 20px;
+    }
+    .card {
+      background-color: #fff;
       border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
       margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
     }
-
     .card h3 {
-      font-size: 1rem;
-      color: var(--muted);
-      margin-bottom: 8px;
+      margin: 0 0 10px;
+      color: #333;
     }
-
-    .card p {
-      font-size: 1.4rem;
+    .highlight {
+      font-size: 24px;
       font-weight: bold;
+      color: #ffa500;
     }
-
-    .metrics {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
-      margin-bottom: 30px;
     }
-
-    .user-box {
-      text-align: center;
-    }
-
-    .user-box img {
-      width: 80px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-
-    .badge {
-      background-color: var(--primary);
-      color: var(--white);
-      padding: 5px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      margin-top: 5px;
-      display: inline-block;
-    }
-
-    .section-title {
-      margin: 10px 0 5px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .big-value {
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-
-    .sponsor {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    .payment-panel h4 {
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
-
-    .classification img {
-      width: 60px;
-      display: block;
-      margin: 0 auto;
-    }
-
-    .classification p {
-      text-align: center;
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
   </style>
 </head>
 <body>
   <div class="sidebar">
-    <img src="investiplus_logo_white_bg.png" style="width: 100%; max-width: 140px; margin-bottom: 20px;" alt="Investiplus Logo" style="width: 100px; margin-bottom: 20px;">
-    <a href="#">Cruscotto</a>
-    <a href="#">Reti</a>
-    <a href="#">Registrati</a>
-    <a href="#">Prelievo</a>
-    <a href="#">Acquisti</a>
-    <a href="#">Strumenti</a>
+    <img src="investiplus_logo_white_bg.png" alt="Investiplus Logo">
+    <nav>
+      <a href="#"><i class="fa-solid fa-gauge"></i> Cruscotto</a>
+      <a href="#"><i class="fa-solid fa-network-wired"></i> Reti</a>
+      <a href="#"><i class="fa-solid fa-user-plus"></i> Registrati</a>
+      <a href="#"><i class="fa-solid fa-wallet"></i> Portafoglio</a>
+      <a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Prelievo</a>
+      <a href="#"><i class="fa-solid fa-cart-shopping"></i> Acquisti</a>
+      <a href="#"><i class="fa-solid fa-tools"></i> Strumenti</a>
+    </nav>
   </div>
-
-  <div class="mainlayout">
-    <div class="center_content_section">
-      <div class="metrics">
-        <div class="card">
-          <h3>Commissioni</h3>
-          <p>€ 9,69</p>
-        </div>
-        <div class="card">
-          <h3>Totale Crediti</h3>
-          <p>€ 9,69</p>
-        </div>
-        <div class="card">
-          <h3>Totale Debiti</h3>
-          <p>€ 0</p>
-        </div>
-      </div>
-
-      <div class="card classification">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="medaglia">
-        <p>Attuale Classifica: Silver</p>
-      </div>
-
-      <div class="card">
-        <h3>Guadagni e Spese</h3>
-        <p>Bonus di Livello: € 3.73</p>
-        <p>Riferimento: € 3.73</p>
-        <p>Commissione di livello: € 2.24</p>
-      </div>
+  <div class="main">
+    <h1>Benvenuto agente</h1>
+    <div class="grid">
+      <div class="card"><h3>Commissioni</h3><div class="highlight">€ 9,69</div></div>
+      <div class="card"><h3>Totale Crediti</h3><div class="highlight">€ 9,69</div></div>
+      <div class="card"><h3>Totale Debiti</h3><div class="highlight">€ 0</div></div>
+      <div class="card"><h3>Attuale Classifica</h3><div class="highlight">Silver</div></div>
     </div>
-
-    <div class="right_content_section">
-      <div class="panel user-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/1946/1946429.png" alt="User">
-        <div>Member1 Test</div>
-        <div>ID: INF00123</div>
-        <div class="badge">Membership Pack2</div>
-        <div class="section-title">PV personale</div>
-        <div class="big-value">100</div>
-        <div class="section-title">PV di gruppo</div>
-        <div class="big-value">100</div>
-        <div class="section-title">Sponsor</div>
-        <div class="sponsor">MOH2M3LMD</div>
-      </div>
-
-      <div class="panel payment-panel">
-        <h4>Panoramica dei Pagamenti</h4>
-        <p>Pagato: € 0</p>
-      </div>
+    <div class="card">
+      <h3>Dati Sponsor</h3>
+      <p><strong>Member1 Test</strong><br>ID: INF00123<br>PV personale: 100<br>PV gruppo: 100<br>Sponsor: MOH2M3LMD</p>
+    </div>
+    <div class="card">
+      <h3>Panoramica dei Pagamenti</h3>
+      <p>Pagato: € 0</p>
     </div>
   </div>
-
-  <div style="padding: 20px;">
-    <div style="background: white; border: 2px dashed #954cea; border-radius: 12px; padding: 40px; text-align: center; margin-bottom: 20px;">
-      <p style="font-size: 1.2rem; color: #121212;">Carica banner superiore</p>
-    </div>
-    <div style="background: white; border: 2px dashed #954cea; border-radius: 12px; padding: 40px; text-align: center;">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="Upload" width="60" style="margin-bottom: 10px;">
-      <p style="color: #121212;">Scegli un file immagine o trascinalo qui</p>
-    </div>
-  </div>
-
-  <footer style="position: fixed; bottom: 0; width: 100%; background: white; border-top: 1px solid #eee; display: flex; justify-content: space-around; padding: 10px 0;">
-    <img src="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" alt="Home" width="24">
-    <img src="https://cdn-icons-png.flaticon.com/512/3416/3416077.png" alt="Network" width="24">
-    <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="User" width="24">
-    <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Wallet" width="24">
-    <img src="https://cdn-icons-png.flaticon.com/512/3503/3503748.png" alt="Tools" width="24">
-  </footer>
 </body>
-</html>
-
 </html>
